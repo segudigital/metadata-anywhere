@@ -1,0 +1,59 @@
+.exifBox {
+  position: absolute;
+  top: 5px; /* Puedes ajustar la posición */
+  left: 5px; /* Puedes ajustar la posición */
+  padding: 5px;
+  border-radius: 5px; /* Esquinas redondeadas */
+  background-color: rgba(255, 255, 255, 0.5); /* Fondo semi-transparente por defecto */
+  color: white; /* Color del texto */
+  font-size: 12px; /* Tamaño del texto */
+  z-index: 1000; /* Asegurarse de que esté encima de otros elementos */
+  white-space: normal; /* Permitir saltos de línea */
+  word-wrap: break-word; /* Romper palabras largas */
+  text-align: left; /* Alinear el texto a la izquierda */
+  max-width: 350px; /* Ancho máximo de 350px */
+}
+
+.exifBox.showData {
+  max-height: 350px; /* Controlar la altura */
+  overflow-y: auto; /* Desplazamiento si hay demasiados datos */
+  white-space: pre-wrap; /* Mantener formato */
+  background-color: #86a5d9; /* Color de fondo cuando se muestran los datos */
+}
+
+.exifBox.hasExif {
+  background-color: #86a5d9; /* Fondo cuando hay datos EXIF */
+}
+
+.exifBox.noExif {
+  background-color: rgba(255, 255, 255, 0.5); /* Fondo semi-transparente cuando no hay datos EXIF */
+}
+
+.exifBox.hover {
+  opacity: 0.8; /* Un poco más visible al pasar el cursor */
+}
+
+
+.copyButton {
+  background-color: #4CAF50; /* Verde */
+  border: none; /* Sin borde */
+  color: white; /* Texto blanco */
+  padding: 5px 10px; /* Espaciado interno */
+  text-align: center; /* Centrar texto */
+  text-decoration: none; /* Sin subrayado */
+  display: inline-block; /* Mostrar como bloque en línea */
+  font-size: 12px; /* Tamaño de fuente */
+  margin-top: 5px; /* Margen superior */
+  border-radius: 3px; /* Esquinas redondeadas */
+  cursor: pointer; /* Cambia el cursor al pasar el ratón */
+  transition: background-color 0.3s, opacity 0.3s; /* Transición suave */
+  opacity: 1; /* Opacidad inicial */
+}
+
+.copyButton:hover {
+  background-color: #45a049; /* Color más oscuro al pasar el cursor */
+}
+
+.copyButton.hidden {
+  opacity: 0; /* Opacidad cuando está oculto */
+}
