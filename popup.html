@@ -3,16 +3,54 @@
 <head>
   <meta charset="UTF-8">
   <title>Metadata Anywhere</title>
-  <link rel="stylesheet" href="styles.css"> <!-- Agregar esta línea -->
+  <link rel="stylesheet" href="styles.css">
 </head>
-<body>
+<body class="popup-container">
   <h3>Metadata Anywhere</h3>
-  <p>Hecho por @segudigital</p>
+  <p>Hecho por <a href="https://segudigital.org" target="_blank">@segudigital</a></p>
+
+  <!-- Opción de configuración -->
   <p>
     <label>
       <input type="checkbox" id="showNoExif" /> Mostrar cuadro sin EXIF
     </label>
   </p>
+
+  <!-- Información adicional -->
+  <section>
+    <h4>¿Qué es Metadata?</h4>
+    <p>
+      La metadata es información que describe otros datos. En el caso de las imágenes, puede incluir detalles como la fecha de creación, el dispositivo usado, y la ubicación geográfica donde se tomó la foto.
+    </p>
+  </section>
+
+  <section>
+    <h4>¿Qué es EXIF?</h4>
+    <p>
+      EXIF (Exchangeable Image File Format) es un tipo de metadata que almacenan las cámaras y dispositivos móviles al tomar una foto. Estos datos incluyen detalles técnicos como la cámara usada, la exposición, el ISO, y la ubicación GPS, entre otros.
+    </p>
+  </section>
+
+  <section>
+    <h4>¿Por qué es importante?</h4>
+    <p>
+      Para periodistas y personas defensoras de derechos humanos, conocer y gestionar los datos EXIF es crucial para proteger la privacidad y seguridad. Las imágenes pueden contener información sensible, como la ubicación exacta donde se tomó una foto, lo que puede poner en riesgo a las personas involucradas.
+    </p>
+    <p>
+      Sin embargo, los datos EXIF también tienen un lado positivo. Pueden ser utilizados para demostrar la autenticidad de una imagen o probar la propiedad de una foto, lo cual es útil en situaciones como reportajes, investigaciones periodísticas, y verificación de hechos.
+    </p>
+  </section>
+
+  <section>
+    <h4>¿Cómo usar la extensión?</h4>
+    <p>
+      1. Navega por cualquier sitio web que contenga imágenes.<br>
+      2. Pasa el cursor sobre cualquier imagen para ver si contiene datos EXIF.<br>
+      3. Si la imagen tiene datos EXIF, podrás copiarlos al portapapeles con el botón "Copiar Datos EXIF".<br>
+      4. Activa la opción "Mostrar cuadro sin EXIF" para ver un indicador en imágenes que no contienen datos EXIF.
+    </p>
+  </section>
+
   <p><a href="https://segudigital.org" target="_blank">Visítanos</a></p>
   <script src="popup.js"></script>
 </body>

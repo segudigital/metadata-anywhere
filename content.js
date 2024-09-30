@@ -21,11 +21,27 @@ chrome.storage.sync.get('showNoExif', function (data) {
         copyButton.className = 'copyButton'; // Añadir la clase al botón
         copyButton.textContent = 'Copiar Datos EXIF';
         copyButton.style.display = hasExif ? 'block' : 'none'; // Solo mostrar si hay datos EXIF
-        
+
+        // Crear el botón de cerrar (X)
+        const closeButton = document.createElement('span');
+        closeButton.className = 'closeButton';
+        closeButton.textContent = '✕'; // Símbolo de cerrar
+
+        // Estilos adicionales para el botón de cerrar
+        closeButton.style.position = 'absolute';
+        closeButton.style.top = '0';
+        closeButton.style.right = '0';
+        closeButton.style.cursor = 'pointer';
+        closeButton.style.padding = '2px 5px';
+        closeButton.style.color = '#fff';
+        closeButton.style.background = 'rgba(0, 0, 0, 0.6)';
+        closeButton.style.borderRadius = '3px';
+
         img.style.position = 'relative';
         img.parentNode.style.position = 'relative';
         img.parentNode.insertBefore(exifBox, img);
-        
+        exifBox.appendChild(closeButton); // Añadir el botón de cerrar al cuadro
+
         // Aumentar la visibilidad al pasar el cursor sobre la imagen
         img.addEventListener('mouseenter', function() {
           exifBox.classList.add('hover'); // Añadir clase para cambiar fondo en hover
@@ -61,19 +77,26 @@ chrome.storage.sync.get('showNoExif', function (data) {
             exifContainer.appendChild(dataDiv);
         
             exifBox.innerHTML = ''; // Limpiar el contenido anterior
+            exifBox.appendChild(closeButton); // Volver a agregar el botón de cerrar
             exifBox.appendChild(exifContainer); // Agregar el contenedor al exifBox
             exifBox.classList.add('showData'); // Añadir clase para mostrar datos
             } else {
             exifBox.textContent = 'No EXIF'; // Mostrar el texto de no EXIF
+            exifBox.appendChild(closeButton); // Asegurarse de que el botón de cerrar esté ahí
             }
         });
         
         // Restaura el contenido al salir del cuadro
         exifBox.addEventListener('mouseleave', function() {
             exifBox.textContent = hasExif ? 'EXIF Data' : 'No EXIF'; // Restaurar texto
+            exifBox.appendChild(closeButton); // Asegurarse de que el botón de cerrar esté visible
             exifBox.classList.remove('showData'); // Eliminar clase para ocultar datos
         });
-  
+
+        // Cerrar el exifBox al hacer clic en el botón de cerrar
+        closeButton.addEventListener('click', function() {
+          exifBox.remove(); // Eliminar el exifBox de la imagen
+        });
 
         // Función para copiar datos EXIF al portapapeles
         copyButton.addEventListener('click', function() {
